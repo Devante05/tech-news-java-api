@@ -18,6 +18,7 @@ import java.util.List;
 
 @Controller
 public class HomePageController {
+
     @Autowired
     UserRepository userRepository;
 
@@ -40,6 +41,7 @@ public class HomePageController {
         model.addAttribute("user", new User());
         return "login";
     }
+
     @GetMapping("/users/logout")
     public String logout(HttpServletRequest request) {
         if (request.getSession(false) != null) {
@@ -47,6 +49,7 @@ public class HomePageController {
         }
         return "redirect:/login";
     }
+
     @GetMapping("/")
     public String homepageSetup(Model model, HttpServletRequest request) {
         User sessionUser = new User();
@@ -73,6 +76,7 @@ public class HomePageController {
 
         return "homepage";
     }
+
     @GetMapping("/dashboard")
     public String dashboardPageSetup(Model model, HttpServletRequest request) throws Exception {
 
@@ -198,4 +202,6 @@ public class HomePageController {
 
         return model;
     }
+
+
 }
